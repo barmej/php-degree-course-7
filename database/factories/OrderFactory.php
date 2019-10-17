@@ -12,12 +12,12 @@ function generateProducts(){
         $product->quantity=rand(1,4);
         $products[]=$product;
     }
-    return $products;
+    return json_encode($products);
 }
 
 $factory->define(Order::class, function (Faker $faker) {
     return [
-        'transaction_id' => $faker->randomNumber($nbDigits = 10, $strict = false),
+        'transaction_id' => $faker->randomNumber($nbDigits = 8, $strict = false),
         'payment_type' => $faker->randomElement($array=array('visa','knet','cash')),
         'status' => $faker->randomElement($array = array('delivered', 'paid', 'pending','failed')),
         'products' => generateProducts(),
