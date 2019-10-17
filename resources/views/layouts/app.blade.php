@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}"></script>
+    @section('styles')
+    @show
+    
 
 </head>
 <body>
@@ -15,5 +17,10 @@
         @yield('content')
         @include('layouts.footer')
     </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    @section('scripts')
+    @show
 </body>
 </html>
